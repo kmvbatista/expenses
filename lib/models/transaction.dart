@@ -4,5 +4,5 @@ class Transaction {
   final double amount;
   final DateTime date;
 
-  Transaction(this.id, this.title, this.amount, this.date);
+  Transaction({this.id, this.title, this.amount, this.date});
 }
