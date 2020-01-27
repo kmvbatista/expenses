@@ -39,7 +39,19 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               padding: EdgeInsets.all(10),
               child: Column(
-                children: <Widget>[],
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Title'),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Amount'),
+                  ),
+                  FlatButton(
+                    child: Text('Add transaction'),
+                    textColor: Colors.purple,
+                    onPressed: () {},
+                  )
+                ],
               ),
             ),
           ),
