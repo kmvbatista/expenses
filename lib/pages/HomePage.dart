@@ -1,3 +1,5 @@
+import 'package:expenses/widgets/chart.dart';
+
 import '../models/transaction.dart';
 import '../widgets/new_transaction.dart';
 import '../widgets/transactionList.dart';
@@ -16,6 +18,13 @@ class _HomePageState extends State<HomePage> {
     Transaction(id: 't12', title: 'New bag', amount: 10, date: DateTime.now()),
     Transaction(id: 't3', title: 'New shirt', amount: 59, date: DateTime.now()),
   ];
+
+  List<Transaction> get _recentTransactions {
+    return transactions
+        .where(
+            (tx) => tx.date.isAfter(DateTime.now().subtract(Duration(days: 7))))
+        .toList();
+  }
 
   void _addNewTransaction(String title, double amount) {
     final newTransaction = Transaction(
@@ -62,6 +71,7 @@ class _HomePageState extends State<HomePage> {
                 elevation: 5,
               ),
             ),
+            Chart(_recentTransactions),
             NewTransaction(_addNewTransaction),
             TransactionList(transactions),
           ],
