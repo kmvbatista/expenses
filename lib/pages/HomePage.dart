@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               width: double.infinity,
               child: Card(
-                color: Colors.blue,
+                color: Theme.of(context).primaryColor,
                 child: Text(
                   'Chart',
                 ),
