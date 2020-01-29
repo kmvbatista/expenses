@@ -61,19 +61,9 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Card(
-                color: Theme.of(context).primaryColor,
-                child: Text(
-                  'Chart',
-                ),
-                elevation: 5,
-              ),
-            ),
             Chart(_recentTransactions),
-            NewTransaction(_addNewTransaction),
             TransactionList(transactions),
+            NewTransaction(_addNewTransaction),
           ],
         ),
       ),
