@@ -24,7 +24,6 @@ class Chart extends StatelessWidget {
   }
 
   double get totalSpending {
-    print(groupedTransactionValues);
     return groupedTransactionValues.fold(0.0, (sum, item) {
       return sum + item['amount'];
     });
@@ -36,6 +35,7 @@ class Chart extends StatelessWidget {
       elevation: 6,
       margin: EdgeInsets.all(20),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: groupedTransactionValues.map((data) {
           return ChartBar(
               data['day'],

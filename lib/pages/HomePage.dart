@@ -26,12 +26,12 @@ class _HomePageState extends State<HomePage> {
         .toList();
   }
 
-  void _addNewTransaction(String title, double amount) {
+  void _addNewTransaction(String title, double amount, DateTime choosenDate) {
     final newTransaction = Transaction(
         title: title,
         amount: amount,
         id: DateTime.now().toString(),
-        date: DateTime.now());
+        date: choosenDate);
     setState(() {
       transactions.add(newTransaction);
     });
@@ -63,7 +63,6 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Chart(_recentTransactions),
             TransactionList(transactions),
-            NewTransaction(_addNewTransaction),
           ],
         ),
       ),

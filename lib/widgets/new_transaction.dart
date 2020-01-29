@@ -18,9 +18,10 @@ class _NewTransactionState extends State<NewTransaction> {
   void submitData() {
     if (amountController.text.isNotEmpty &&
         titleController.text.isNotEmpty &&
-        double.parse(amountController.text) >= 0) {
-      widget.addNewTransaction(
-          titleController.text, double.parse(amountController.text));
+        double.parse(amountController.text) >= 0 &&
+        selectedDate != null) {
+      widget.addNewTransaction(titleController.text,
+          double.parse(amountController.text), selectedDate);
       Navigator.of(context).pop();
     }
   }
@@ -60,7 +61,7 @@ class _NewTransactionState extends State<NewTransaction> {
                 children: <Widget>[
                   Text(selectedDate == null
                       ? 'No Date chosen'
-                      : DateFormat.yMd().format(selectedDate)),
+                      : 'Picked date: ${DateFormat.yMd().format(selectedDate)}'),
                   FlatButton(
                     child: Text('Choose Date'),
                     onPressed: presentDatePicker,
