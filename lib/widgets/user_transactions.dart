@@ -1,7 +1,4 @@
-import '../models/transaction.dart';
 import 'package:flutter/material.dart';
-import 'package:expenses/widgets/new_transaction.dart';
-import 'package:expenses/widgets/transactionList.dart';
 
 class UserTransation extends StatefulWidget {
   @override

@@ -64,13 +64,21 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Chart(_recentTransactions),
-            TransactionList(transactions, deleteTransaction),
-          ],
-        ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Container(
+                    height: constraints.maxHeight * 0.3,
+                    child: Chart(_recentTransactions)),
+                Container(
+                    height: constraints.maxHeight * 0.7,
+                    child: TransactionList(transactions, deleteTransaction)),
+              ],
+            ),
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
